@@ -1,0 +1,40 @@
+.footer-gob{
+    background-color: #12322b;
+}
+
+.img-footer{
+    background-color: #12322b;
+    background-image: url("https://framework-gb.cdn.gob.mx/landing/img/pleca.svg");
+    background-repeat: repeat-x;
+    height: 50px;
+}
+
+.social-icon{
+    background-image: url("https://framework-gb.cdn.gob.mx/assets/images/icons_full.png");
+    display: inline-block;
+    text-indent: -9999;
+    margin-right: 5px;
+    &:hover{
+        opacity: .5;
+    }
+}
+
+.social-icon.facebook{
+    width: 14px;
+    height: 20px;
+    background-position: 0 0;
+}
+.social-icon.twitter{
+    width: 24px;
+    height: 20px;
+    background-position: -34px 0;
+}
+
+@media screen and (max-width:890px) {
+    .footer-gob{
+        div{
+            width: 100%;
+        }
+        flex-wrap: wrap;
+    }
+}

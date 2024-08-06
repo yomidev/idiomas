@@ -1,0 +1,16 @@
+#enlaces{
+    width: 100%;
+    background-color: #344474 !important;
+}
+.hover-link{
+    color: #fff;
+    letter-spacing: 3px;
+    &:hover{
+        font-weight: 700 !important;
+        cursor: pointer;
+        transition: 0.2s ease-in;
+    }
+}
+.active2{
+    border-bottom: 2px solid #fff;
+}
