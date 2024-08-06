@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\FrontendController::class,'index'])->name('index');
+Route::get('/about', [App\Http\Controllers\FrontendController::class,'about'])->name('about');
+Route::get('/services', [App\Http\Controllers\FrontendController::class,'services'])->name('services');
+Route::get('/students', [App\Http\Controllers\FrontendController::class,'students'])->name('students');

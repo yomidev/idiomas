@@ -1,0 +1,19 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'partials/_menu-gob';
+@import 'partials/menu-logos';
+@import 'partials/nav-menu';
+@import 'partials/footer';
+
+
+//Estilos Estandar
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+//Eliminar barra
+::-webkit-scrollbar {
+    display: none;
+}

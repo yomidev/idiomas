@@ -1,0 +1,39 @@
+#logos{
+    height: 75px;
+    position: relative;
+    img{
+        height: 100%;
+    }
+}
+
+.logos{
+    padding: 10px 10px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo-gob{
+        width: 160px;
+    }
+    .logo-sep{
+        width: 170px;
+        height: 40px !important;
+    }
+    .logo-tecnm{
+        width: 130px;
+    }
+    .logo-ITA{
+        width: 170px;
+    }
+}
+
+@media screen and (max-width:890px) {
+    .logo-ITA{
+        display: none;
+    }
+}
+@media screen and (max-width:480px) {
+    .logo-sep{
+        display: none;
+    }
+}
