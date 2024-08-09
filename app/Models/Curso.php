@@ -27,6 +27,7 @@ class Curso extends Model
         'categoria',
         'imagen',
         'id_idioma',
+        'active',
     ];
 
     /**

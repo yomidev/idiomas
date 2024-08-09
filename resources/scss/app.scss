@@ -17,3 +17,27 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
+#banner{
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: none;
+}
+
+.imagen-container{
+    margin: 10px;
+    img{
+        width: 150px;
+        height: auto;
+        &:hover{
+            width: 160px;
+            transition: 0.3s ease-in-out;
+        }
+    }
+    &:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+
