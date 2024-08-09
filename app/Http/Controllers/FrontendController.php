@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Idioma;
 
 class FrontendController extends Controller
 {
     public function index(){
-        return view('welcome');
+        $idioma = Idioma::all();
+        return view('welcome')->with(['idioma' => $idioma]);
     }
     public function about(){
 
@@ -16,6 +18,6 @@ class FrontendController extends Controller
 
     }
     public function students(){
-        
+
     }
 }
