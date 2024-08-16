@@ -34,6 +34,18 @@ Route::middleware(['auth'])->group(function (){
     Route::put('admin/cursos/{id}/update',[App\Http\Controllers\CursosController::class, 'update'])->name('cursos_update');
     Route::delete('admin/cursos/{id}/delete',[App\Http\Controllers\CursosController::class, 'delete'])->name('cursos_delete');
     Route::post('/admin/cursos/change/status',[App\Http\Controllers\CursosController::class, 'status'])->name('cursos_status');
+    //Certificaciones
+    Route::get('/admin/cert/index',[App\Http\Controllers\CertificacionesController::class, 'index'])->name('cert_index');
+    Route::post('/admin/cert/store',[App\Http\Controllers\CertificacionesController::class, 'store'])->name('cert_store');
+    Route::put('/admin/cert/{id}/update',[App\Http\Controllers\CertificacionesController::class, 'update'])->name('cert_update');
+    Route::delete('/admin/cert/{id}/delete', [App\Http\Controllers\CertificacionesController::class, 'delete'])->name('cert_delete');
+    Route::post('/admin/cert/change/status', [App\Http\Controllers\CertificacionesController::class, 'status'])->name('cert_status');
+    //Eventos
+    Route::get('/admin/events/index', [App\Http\Controllers\EventosController::class, 'index'])->name('events_index');
+    Route::post('/admin/events/store',[App\Http\Controllers\EventosController::class, 'store'])->name('events_store');
+    Route::put('/admin/events/{id}/update', [App\Http\Controllers\EventosController::class, 'update'])->name('events_update');
+    Route::delete('/admin/events/{id}/delete',[App\Http\Controllers\EventosController::class, 'delete'])->name('events_delete');
+    Route::post('/admin/events/change/status', [App\Http\Controllers\EventosController::class, 'status'])->name('events_status');
 
 });
 

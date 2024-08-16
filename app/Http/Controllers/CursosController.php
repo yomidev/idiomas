@@ -58,7 +58,9 @@ class CursosController extends Controller
         return response()->json(['success' => true]);
     }
     public function delete($id){
-
+        $curso = Curso::findOrFail($id);
+        $curso->delete();
+        return response()->json(['success' =>'Registro eliminado exitosamente']);
     }
     public function status(Request $request){
         $courseId = $request->input('courseId');

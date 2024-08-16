@@ -316,7 +316,7 @@ return [
                 ],
                 [
                     'text' => 'Eventos',
-                    'route' => '',
+                    'route' => 'events_index',
                     'icon' => 'fas fa-calendar-alt'
                 ]
             ]
@@ -327,7 +327,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Certificaciones',
-                    'route' => '',
+                    'route' => 'cert_index',
                     'icon' => 'fas fa-certificate'
                 ],
                 [

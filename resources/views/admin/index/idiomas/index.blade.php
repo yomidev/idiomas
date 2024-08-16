@@ -95,11 +95,12 @@
                             </td>
                             <td class="text-center d-flex justify-content-between">
                                 <button class="btn btn-warning" data-toggle="modal" data-target="#editIdioma{{$i->id}}">Editar</button>
-                                <button class="btn btn-danger">Eliminar</button>
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="{{ $i->id }}">Eliminar</button>
                             </td>
                         </tr>
                         @include('admin.index.idiomas._edit')
                         @include('admin.index.idiomas._image')
+                        @include('admin.index.idiomas._delete')
                     @endforeach
                 </tbody>
             </table>
@@ -199,6 +200,40 @@
                         });
                     }
                 });
+            });
+        });
+    </script>
+    <script>
+        let deleteId;
+        $('#deleteModal').on('show.bs.modal', function (event) {
+            let button = $(event.relatedTarget);
+            deleteId = button.data('id');
+        });
+        $('#confirmDelete').on('click', function () {
+            $.ajax({
+                url: '/admin/idiomas/' + deleteId + '/delete',
+                type: 'DELETE',
+                dataType: 'json',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    Swal.fire({
+                        type: 'success',
+                        title: '¡Registro Eliminado!',
+                        text: response.success
+                    }).then(() => {
+                        location.reload();
+                    });
+                },
+                error: function(xhr, status, error) {
+                    $('#deleteModal').modal('hide');
+                    Swal.fire({
+                        type: 'error',
+                        title: '¡Error!',
+                        text: 'Hubo un problema al enviar la solicitud al servidor.'
+                    });
+                }
             });
         });
     </script>

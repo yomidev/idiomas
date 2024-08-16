@@ -24,6 +24,7 @@ class Evento extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
+        'active',
     ];
 
     /**
