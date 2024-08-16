@@ -24,6 +24,7 @@ class ServicioGeneral extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
+        'active',
     ];
 
     /**

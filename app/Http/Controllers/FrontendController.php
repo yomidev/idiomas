@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Idioma;
 use App\Models\Curso;
 use App\Models\Evento;
+use App\Models\ServicioGeneral;
 
 class FrontendController extends Controller
 {
@@ -27,7 +28,11 @@ class FrontendController extends Controller
 
     }
     public function services(){
-
+        $certifications = Certificacion::where('active',1)->get();
+        $services = ServicioGeneral::where('active', 1)->get();
+        return view('services')->with(['certifications' => $certifications,
+            'services' => $services
+        ]);
     }
     public function students(){
 
