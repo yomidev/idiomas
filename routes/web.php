@@ -46,6 +46,11 @@ Route::middleware(['auth'])->group(function (){
     Route::put('/admin/events/{id}/update', [App\Http\Controllers\EventosController::class, 'update'])->name('events_update');
     Route::delete('/admin/events/{id}/delete',[App\Http\Controllers\EventosController::class, 'delete'])->name('events_delete');
     Route::post('/admin/events/change/status', [App\Http\Controllers\EventosController::class, 'status'])->name('events_status');
-
+    //Servicios Generales
+    Route::get('/admin/services/index',[App\Http\Controllers\ServiciosGeneralesController::class, 'index'])->name('services_index');
+    Route::post('/admin/services/store',[App\Http\Controllers\ServiciosGeneralesController::class, 'store'])->name('services_store');
+    Route::put('/admin/services/{id}/update',[App\Http\Controllers\ServiciosGeneralesController::class, 'update'])->name('services_update');
+    Route::delete('/admin/services/{id}/delete', [App\Http\Controllers\ServiciosGeneralesController::class, 'delete'])->name('services_delete');
+    Route::post('/admin/services/change/status', [App\Http\Controllers\ServiciosGeneralesController::class, 'status'])->name('services_status');
 });
 

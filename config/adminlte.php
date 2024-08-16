@@ -332,7 +332,7 @@ return [
                 ],
                 [
                     'text' => 'Servicios Generales',
-                    'route' => '',
+                    'route' => 'services_index',
                     'icon' => 'fas fa-tools'
                 ]
             ]
