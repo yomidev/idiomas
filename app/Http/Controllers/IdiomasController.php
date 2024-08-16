@@ -53,6 +53,8 @@ class IdiomasController extends Controller
         return response()->json(['success' => true]);
     }
     public function delete($id){
-
+        $idioma = Idioma::findOrFail($id);
+        $idioma->delete();
+        return response()->json(['success' =>'Registro eliminado exitosamente']);
     }
 }

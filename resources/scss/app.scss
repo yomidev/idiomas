@@ -18,6 +18,11 @@
     display: none;
 }
 
+.text-blue{
+    color: #344474;
+    letter-spacing: 1.5px;
+}
+
 #banner{
     width: 100%;
     background-size: cover;
@@ -41,3 +46,115 @@
     }
 }
 
+.subtitle{
+    color: #9a2d4e;
+    font-weight: bolder;
+}
+
+.nav-pills .nav-link{
+    background-color: #888;
+    color: #495057;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size:14pt;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-pills .nav-link.active{
+    background-color: #344474 !important;
+    color: #fff;
+}
+
+.nav-pills .nav-link:hover{
+    background-color: #e2e6ea;
+    color: #495057;
+}
+
+.card-course{
+    border: 5px solid #344474 !important;
+    border-radius: 20px;
+    -webkit-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+    .img-card{
+        max-width: 100px;
+        max-height: 100px;
+        margin: 0 auto;
+    }
+    .btn-course{
+        background-color: #8a9994 !important;
+        border: none;
+        font-weight: bold;
+        letter-spacing: 1.5px;
+        &:hover{
+            background-color: #9a2d4e !important;
+            transition: 0.3s ease-in-out;
+        }
+    }
+    .card-title-especific{
+        font-size: 14pt;
+    }
+}
+
+.p-not{
+    font-size:16pt !important;
+    margin-bottom: 50px;
+}
+
+.swiper1{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.swiper-slide1{
+    width: 350px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    background-color: #fff;
+    img{
+        margin: 0 auto;
+        width: 80%;
+        height: auto;
+        opacity: 0.8;
+    }
+}
+
+.p-accordion{
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.accordion-index{
+    border-radius: 25px !important;
+    .accordion-button{
+        background-color: #344474 !important;
+        color: #fff !important;
+        border-radius: 25px !important;
+        font-size: 14pt;
+        font-weight: 700;
+        &::after {
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+            font-weight: 700;
+        }
+    }
+    .accordion-collapse{
+        border-radius: 25px !important;
+    }
+}
+
+
+@media screen and (max-width:480px) {
+    .swiper-slide1{
+        img{
+            width: 50%;
+        }
+    }
+}

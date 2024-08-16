@@ -18,11 +18,11 @@
             background-color: #d2d6de;
             width: 40px;
             height: 20px;
-            border-radius: 20px; 
+            border-radius: 20px;
             position: relative;
             cursor: pointer;
             outline: none;
-            transition: background-color 0.3s ease; 
+            transition: background-color 0.3s ease;
         }
 
         .statusCourse::before {
@@ -86,11 +86,12 @@
                         <td>
                             <button class="btn btn-success" data-toggle="modal" data-target="#viewCurso{{$c->id}}">Detalles</button>
                             <button class="btn btn-warning" data-toggle="modal" data-target="#editCurso{{$c->id}}">Editar</button>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCurso{{$c->id}}">Eliminar</button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-id="{{ $c->id }}">Eliminar</button>
                         </td>
                     </tr>
                     @include('admin.index.cursos._edit')
                     @include('admin.index.cursos._details')
+                    @include('admin.index.cursos._delete')
                     @endforeach
                 </tbody>
             </table>
@@ -235,6 +236,40 @@
                     $(this).prop('checked', !isChecked);
                 }
             });
+        });
+    });
+</script>
+<script>
+    let deleteId;
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget);
+        deleteId = button.data('id');
+    });
+    $('#confirmDelete').on('click', function () {
+        $.ajax({
+            url: '/admin/cursos/' + deleteId + '/delete',
+            type: 'DELETE',
+            dataType: 'json',
+            data: {
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(response) {
+                Swal.fire({
+                    type: 'success',
+                    title: '¡Registro Eliminado!',
+                    text: response.success
+                }).then(() => {
+                    location.reload();
+                });
+            },
+            error: function(xhr, status, error) {
+                $('#deleteModal').modal('hide');
+                Swal.fire({
+                    type: 'error',
+                    title: '¡Error!',
+                    text: 'Hubo un problema al enviar la solicitud al servidor.'
+                });
+            }
         });
     });
 </script>

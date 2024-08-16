@@ -25,6 +25,7 @@ class Certificacion extends Model
         'nombre',
         'descripcion',
         'logo',
+        'active',
     ];
 
     /**
