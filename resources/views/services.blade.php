@@ -66,6 +66,7 @@
         </div>
 
     </section>
+    @include('partials.templates.contact')
 </main>
 <footer class="footer-gob">
     @include('partials.templates.footer')

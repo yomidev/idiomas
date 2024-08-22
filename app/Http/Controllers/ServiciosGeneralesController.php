@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ServiciosGeneralesController extends Controller
 {
     public function index(){
-        $services = ServicioGeneral::where('active',1)->get();
+        $services = ServicioGeneral::all();
         return view('admin.services.generales.index')->with(['services' => $services]);
     }
     public function store(Request $request){

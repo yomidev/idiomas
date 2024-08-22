@@ -9,6 +9,45 @@
     <h1 class="m-0 text-dark fw-bolder">Idiomas Ofertados</h1>
 @stop
 
+@section('css')
+    <style>
+        .statusIdioma {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: #d2d6de;
+            width: 40px;
+            height: 20px;
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .statusIdioma::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: left 0.3s ease;
+        }
+
+        .statusIdioma:checked {
+            background-color: #28a745;
+        }
+
+        .statusIdioma:checked::before {
+            left: 22px;
+        }
+    </style>
+@stop
+
 @section('content')
 @php
     function truncateHtml($text, $length, $ending = '...') {
@@ -78,6 +117,7 @@
                         <th>ID</th>
                         <th>Idioma</th>
                         <th>Texto</th>
+                        <th>Visble</th>
                         <th>Imagen</th>
                         <th>Opciones</th>
                     </tr>
@@ -88,6 +128,9 @@
                             <td class="text-center">{{$i->id}}</td>
                             <td class="text-center">{{$i->nombre}}</td>
                             <td style="font-size:10pt">{!! truncateHtml($i->descripcion, 200) !!}</td>
+                            <td>
+                                <input data-id="{{$i->id}}" class="statusIdioma" type="checkbox" {{ $i->active ? 'checked' : '' }}>
+                            </td>
                             <td class="text-center">
                                 @if($i->imagen != null)
                                     <button class="btn btn-success" data-toggle="modal" data-target="#viewIdioma{{$i->id}}">Ver</button>
@@ -234,6 +277,47 @@
                         text: 'Hubo un problema al enviar la solicitud al servidor.'
                     });
                 }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.statusIdioma').change(function () {
+                var courseId = $(this).data('id');
+                var isChecked = $(this).prop('checked') ? 1 : 0;
+
+                $.ajax({
+                    type: 'post',
+                    url: '/admin/idiomas/change/status',
+                    data: {
+                        courseId: courseId,
+                        isChecked: isChecked,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function (response) {
+                        // Mostrar SweetAlert
+                        console.log('Solicitud AJAX exitosa:', response);
+                        Swal.fire({
+                            type: 'success',
+                            title: '¡Estado actualizado!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    },
+                    error: function (error) {
+                        console.error('Error al actualizar el estado:', error);
+
+                        // Mostrar SweetAlert con mensaje de error
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Error al actualizar el estado',
+                            text: 'Ha ocurrido un error. Por favor, inténtalo de nuevo.',
+                        });
+
+                        // Desmarcar el checkbox en caso de error
+                        $(this).prop('checked', !isChecked);
+                    }
+                });
             });
         });
     </script>
