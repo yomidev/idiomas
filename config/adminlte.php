@@ -337,6 +337,27 @@ return [
                 ]
             ]
         ],
+        [
+            'text' => 'ESTUDIANTES',
+            'icon' => 'fas fa-graduation-cap',
+            'submenu' => [
+                [
+                    'text' => 'Plataformas',
+                    'route' => 'platforms_index',
+                    'icon' => 'fas fa-network-wired'
+                ],
+                [
+                    'text' => 'Servicios Estudiantiles',
+                    'route' => 'students_index',
+                    'icon' => 'fas fa-book-open'
+                ]
+            ]
+        ],
+        [
+            'text' => 'CALENDARIO',
+            'route' => 'calendar_index',
+            'icon' => 'fas fa-calendar'
+        ],
     ],
 
     /*
@@ -456,6 +477,21 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/summernote/summernote-bs4.min.css',
+                ],
+            ],
+        ],
+        'FullCalendar' => [
+            'active' => true, // Asegúrate de que esté activo
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true, // Usamos URLs externas, no archivos locales
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.0.1/fullcalendar.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true, // Usamos URLs externas, no archivos locales
+                    'location' => 'https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.0.1/fullcalendar.min.css',
                 ],
             ],
         ],

@@ -54,7 +54,24 @@ class IdiomasController extends Controller
     }
     public function delete($id){
         $idioma = Idioma::findOrFail($id);
+        if($idioma->imagen){
+            $previous_image_path = public_path('pictures/index/idiomas/'.$idioma->imagen);
+            if(file_exists($previous_image_path)){
+                unlink($previous_image_path);
+            }
+        }
         $idioma->delete();
         return response()->json(['success' =>'Registro eliminado exitosamente']);
+    }
+
+    public function status(Request $request){
+        $courseId = $request->input('courseId');
+        $isChecked = $request->input('isChecked');
+
+        $idioma = Idioma::findOrFail($courseId);
+        $idioma->active = $isChecked;
+        $idioma->save();
+
+        return response()->json(['success' => true]);
     }
 }

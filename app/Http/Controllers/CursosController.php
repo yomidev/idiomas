@@ -59,6 +59,12 @@ class CursosController extends Controller
     }
     public function delete($id){
         $curso = Curso::findOrFail($id);
+        if($curso->imagen){
+            $previous_image_path = public_path('pictures/index/cursos/'.$curso->imagen);
+            if(file_exists($previous_image_path)){
+                unlink($previous_image_path);
+            }
+        }
         $curso->delete();
         return response()->json(['success' =>'Registro eliminado exitosamente']);
     }

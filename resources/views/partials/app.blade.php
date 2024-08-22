@@ -17,5 +17,6 @@
     <link rel="shortcut icon" href="{{asset('pictures/favicon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.0.1/index.global.min.css">
 </head>
 <body>

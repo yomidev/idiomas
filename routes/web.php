@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +27,7 @@ Route::middleware(['auth'])->group(function (){
     Route::post('/admin/idiomas/store', [App\Http\Controllers\IdiomasController::class, 'store'])->name('idiomas_store');
     Route::put('/admin/idiomas/{id}/update', [App\Http\Controllers\IdiomasController::class, 'update'])->name('idiomas_update');
     Route::delete('/admin/idiomas/{id}/delete', [App\Http\Controllers\IdiomasController::class, 'delete'])->name('idiomas_delete');
+    Route::post('/admin/idiomas/change/status', [App\Http\Controllers\IdiomasController::class, 'status'])->name('idiomas_status');
     //Cursos
     Route::get('/admin/cursos/index',[App\Http\Controllers\CursosController::class, 'index'])->name('cursos_index');
     Route::post('/admin/cursos/store',[App\Http\Controllers\CursosController::class, 'store'])->name('cursos_store');
@@ -52,5 +52,23 @@ Route::middleware(['auth'])->group(function (){
     Route::put('/admin/services/{id}/update',[App\Http\Controllers\ServiciosGeneralesController::class, 'update'])->name('services_update');
     Route::delete('/admin/services/{id}/delete', [App\Http\Controllers\ServiciosGeneralesController::class, 'delete'])->name('services_delete');
     Route::post('/admin/services/change/status', [App\Http\Controllers\ServiciosGeneralesController::class, 'status'])->name('services_status');
+    //Plataformas
+    Route::get('/admin/platforms/index',[App\Http\Controllers\PlataformaController::class, 'index'])->name('platforms_index');
+    Route::post('/admin/platforms/store',[App\Http\Controllers\PlataformaController::class, 'store'])->name('platforms_store');
+    Route::put('/admin/platforms/{id}/update',[App\Http\Controllers\PlataformaController::class, 'update'])->name('platforms_update');
+    Route::delete('/admin/platforms/{id}/delete', [App\Http\Controllers\PlataformaController::class, 'delete'])->name('platforms_delete');
+    Route::post('/admin/platforms/change/status', [App\Http\Controllers\PlataformaController::class, 'status'])->name('platforms_status');
+    //Servicios Estudiante
+    Route::get('/admin/students/index',[App\Http\Controllers\ServiciosEstudianteController::class, 'index'])->name('students_index');
+    Route::post('/admin/students/store',[App\Http\Controllers\ServiciosEstudianteController::class, 'store'])->name('students_store');
+    Route::put('/admin/students/{id}/update',[App\Http\Controllers\ServiciosEstudianteController::class, 'update'])->name('students_update');
+    Route::delete('/admin/students/{id}/delete', [App\Http\Controllers\ServiciosEstudianteController::class, 'delete'])->name('students_delete');
+    Route::post('/admin/students/change/status', [App\Http\Controllers\ServiciosEstudianteController::class, 'status'])->name('students_status');
+    //Calendario
+    Route::get('/admin/calendar/index',[App\Http\Controllers\CalendarioController::class, 'index'])->name('calendar_index');
+    Route::get('/api/events', [App\Http\Controllers\CalendarioController::class, 'getEvents']);
+    Route::post('/api/events', [App\Http\Controllers\CalendarioController::class, 'store'])->name('calendar_store');
+    Route::put('admin/calendar/{id}/update', [App\Http\Controllers\CalendarioController::class, 'update'])->name('calendar_update');
+    Route::delete('/admin/calendar/{id}/delete', [App\Http\Controllers\CalendarioController::class, 'delete'])->name('calendar_delete');
 });
 

@@ -144,7 +144,7 @@
             </div>
         </div>
     </section>
-
+    @include('partials.templates.contact')
     <footer class="footer-gob">
         @include('partials.templates.footer')
         <div class="img-footer"></div>
