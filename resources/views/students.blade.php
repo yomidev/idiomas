@@ -13,11 +13,11 @@
         <div class="container-fluid">
             <div class="justify-content-around align-items-start">
                 <div class="col-6">
-                    <img src="{{asset('pictures/cle.png')}}" alt="" class="img-fluid">
+                    <img src="{{asset('pictures/cle.png')}}" alt="" class="img-fluid" width="7837" height="1876" loading="lazy">
                 </div>
             </div>
         </div>
-        <img src="{{asset('pictures/banner-students.png')}}" alt="" class="img-fluid">
+        <img src="{{asset('pictures/banner-students.png')}}" alt="" class="img-fluid" width="2630" height="2277" loading="lazy">
     </div>
     <section id="plataformas">
         <h2 class="subtitle text-uppercase text-center mb-3 fw-bold">Plataformas</h2>
@@ -26,7 +26,7 @@
                 @foreach ($platforms as $p)
                 <div class="card m-2 text-center p-2 card-course" style="width: 20rem; border: 2px solid #888">
                     @if ($p->imagen !=null)
-                    <img src="{{asset('pictures/students/platforms/'.$p->imagen)}}" class="img-fluid" alt="">
+                    <img src="{{asset('pictures/students/platforms/'.$p->imagen)}}" class="img-fluid" alt="" loading="lazy">
                     @endif
                     <div class="card-body">
                         <h5 class="card-title text-blue fw-bold">{{ $p->nombre }}</h5>
@@ -79,12 +79,13 @@
         </div>
     </section>
     @include('partials.templates.contact')
-</main>
 <footer class="footer-gob">
     @include('partials.templates.footer')
     <div class="img-footer"></div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.0.1/index.global.min.js"></script>
+</main>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.0.1/index.global.min.js" defer></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -100,9 +101,19 @@
                     color: '{{ $event->color }}',
                 },
                 @endforeach
-            ]
+            ],
+            eventClick: function(info) {
+                Swal.fire({
+                    title: info.event.title,
+                    icon: 'info',
+                    confirmButtonText: 'Aceptar'
+                });
+            }
         });
 
         calendar.render();
     });
 </script>
+</body>
+</html>
+

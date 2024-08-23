@@ -7,5 +7,5 @@
 @endsection
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+   <img src="{{asset('pictures/cle.png')}}" alt="" class="img-fluid">
 @endsection
