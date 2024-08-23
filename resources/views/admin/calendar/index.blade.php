@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Cursos')
+@section('title', 'Cronograma')
 @section('plugins.SweetAlert2', true)
 @section('plugins.Datatables', true)
 @section('plugins.Summernote', true)
@@ -87,7 +87,7 @@
                     $('#addEvent').modal('show');
                 }
             });
-    
+
             calendar.render();
         });
     </script>
@@ -131,7 +131,7 @@
         });
     });
 </script>
-    
+
     <script>
         //Update
         $(document).ready(function(){

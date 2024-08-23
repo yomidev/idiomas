@@ -13,17 +13,17 @@
         <div class="container-fluid">
             <div class="justify-content-around align-items-start">
                 <div class="col-6">
-                    <img src="{{asset('pictures/cle.png')}}" alt="" class="img-fluid">
+                    <img src="{{asset('pictures/cle.png')}}" alt="" class="img-fluid" loading="lazy">
                 </div>
             </div>
         </div>
-        <img src="{{asset('pictures/banner-index.png')}}" alt="" class="img-fluid">
+        <img src="{{asset('pictures/banner-index.png')}}" alt="" class="img-fluid" loading="lazy">
     </div>
     <section id="idiomas">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             @foreach ($idioma as $i)
                 <div class="imagen-container" data-bs-toggle="modal" data-bs-target="#TextModal{{$i->id}}">
-                    <img src="{{asset('pictures/index/idiomas/'.$i->imagen)}}" alt="" class="img-fluid">
+                    <img src="{{asset('pictures/index/idiomas/'.$i->imagen)}}" alt="" class="img-fluid" loading="lazy">
                 </div>
                 @include('partials.modals._text')
             @endforeach
@@ -81,7 +81,7 @@
                                 @foreach ($generalCourses as $course)
                                     <div class="card m-2 text-center p-2 card-course" style="width: 18rem; border: 2px solid #888">
                                         @if ($course->imagen)
-                                            <img src="{{asset('pictures/index/cursos/'.$course->imagen)}}" class="card-img-top img-card" alt="">
+                                            <img src="{{asset('pictures/index/cursos/'.$course->imagen)}}" class="card-img-top img-card" alt="" loading="lazy">
                                         @endif
                                         <div class="card-body">
                                             <h6 class="card-title text-blue fw-bold card-title-especific">{{ $course->nombre }}</h6>
@@ -110,7 +110,7 @@
                     @foreach ($certifications as $cert)
                         @if ($cert->logo != null)
                             <div class="swiper-slide swiper-slide1">
-                                <img src="{{asset('pictures/services/certificacion/'.$cert->logo)}}" alt="">
+                                <img src="{{asset('pictures/services/certificacion/'.$cert->logo)}}" alt="" loading="lazy">
                             </div>
                         @endif
                     @endforeach
