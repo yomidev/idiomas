@@ -20,6 +20,7 @@ Route::get('/services', [App\Http\Controllers\FrontendController::class,'service
 Route::get('/students', [App\Http\Controllers\FrontendController::class,'students'])->name('students');
 
 Auth::routes();
+Route::any('register', function () { abort(403);});
 
 Route::middleware(['auth'])->group(function (){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
